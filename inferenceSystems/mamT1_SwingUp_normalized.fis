@@ -1,0 +1,65 @@
+[System]
+Name='mamT1_SwingUp_normalized'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=21
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='alpha'
+Range=[-1 1]
+NumMFs=7
+MF1='NLS':'trimf',[-1 -0.167 -0.061]
+MF2='NBS':'trimf',[-0.505 -0.283 -0.061]
+MF3='SALN':'trimf',[-0.061 -0.033 -0.0055]
+MF4='Z':'trimf',[-0.0055 0 0.0055]
+MF5='SALP':'trimf',[0.0055 0.033 0.061]
+MF6='PBS':'trimf',[0.061 0.283 0.505]
+MF7='PLS':'trimf',[0.061 0.167 1]
+
+[Input2]
+Name='alpha_dot'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'linzmf',[-0.5 0]
+MF2='Z':'trimf',[-0.025 0 0.025]
+MF3='P':'linsmf',[0 0.5]
+
+[Output1]
+Name='Torque'
+Range=[-1 1]
+NumMFs=5
+MF1='NB':'trimf',[-1.41666666666667 -1 -0.583333333333333]
+MF2='N':'trimf',[-0.916666666666667 -0.5 -0.0833333333333333]
+MF3='Z':'trimf',[-0.416666666666667 0 0.416666666666667]
+MF4='P':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF5='PB':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Rules]
+1 3, 1 (1) : 1
+2 3, 3 (1) : 1
+3 3, 2 (1) : 1
+4 2, 4 (1) : 1
+5 1, 4 (1) : 1
+6 1, 3 (1) : 1
+7 1, 5 (1) : 1
+1 2, 3 (1) : 1
+1 1, 3 (1) : 1
+2 2, 3 (1) : 1
+2 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 1, 3 (1) : 1
+4 1, 3 (1) : 1
+4 3, 3 (1) : 1
+5 2, 3 (1) : 1
+5 3, 3 (1) : 1
+6 2, 3 (1) : 1
+6 3, 3 (1) : 1
+7 2, 3 (1) : 1
+7 3, 3 (1) : 1

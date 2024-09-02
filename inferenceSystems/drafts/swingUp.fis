@@ -1,0 +1,59 @@
+[System]
+Name='swingUp'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=18
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='alpha'
+Range=[-160 160]
+NumMFs=6
+MF1='NB':'linzmf',[-154.7 -112]
+MF2='NM':'trimf',[-149.333333333333 -96 -42.6666666666667]
+MF3='NS':'trimf',[-85.3333333333333 -32 21.3333333333333]
+MF4='PS':'trimf',[-21.3333333333333 32 85.3333333333333]
+MF5='PM':'trimf',[42.6666666666667 96 149.333333333333]
+MF6='PB':'linsmf',[112 154.7]
+
+[Input2]
+Name='alpha_dot'
+Range=[-50 50]
+NumMFs=3
+MF1='N':'linzmf',[-20 -3]
+MF2='Z':'trimf',[-10 0 10]
+MF3='P':'linsmf',[3 20]
+
+[Output1]
+Name='Torque'
+Range=[-0.1 0.1]
+NumMFs=3
+MF1='N':'linzmf',[-0.09167 -0.025]
+MF2='Z':'trimf',[-0.04 0 0.04]
+MF3='P':'linsmf',[0.025 0.09167]
+
+[Rules]
+1 1, 2 (1) : 1
+2 1, 3 (1) : 1
+3 1, 3 (1) : 1
+4 1, 2 (1) : 1
+5 1, 2 (1) : 1
+6 1, 3 (1) : 1
+1 2, 1 (1) : 1
+2 2, 2 (1) : 1
+3 2, 3 (1) : 1
+4 2, 1 (1) : 1
+5 2, 2 (1) : 1
+6 2, 3 (1) : 1
+1 3, 1 (1) : 1
+2 3, 2 (1) : 1
+3 3, 2 (1) : 1
+4 3, 1 (1) : 1
+5 3, 1 (1) : 1
+6 3, 2 (1) : 1
