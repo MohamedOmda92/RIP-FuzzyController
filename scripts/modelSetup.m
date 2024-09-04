@@ -1,4 +1,4 @@
-currentDir = fullfile(pwd);
+currentDir = fullfile(pwd, '..');
 
 %retrieve directories
 modelPath = fullfile(currentDir, 'simulation', 'ripControl');
@@ -6,6 +6,8 @@ fisPath1 = fullfile(currentDir, 'inferenceSystems', 'mamT1_Stabilization.fis');
 fisPath2 = fullfile(currentDir, 'inferenceSystems', 'mamT1_SwingUp.fis');
 fisPath3 = fullfile(currentDir, 'inferenceSystems', 'mamT1_SwingUp_normalized.fis');
 stepFilesPath = fullfile(currentDir, 'stepFiles');
+
+load_system(fullfile(currentDir, 'simulation/ripControl.slx'));
 
 %InferenceSystems Objects
 stabilization = readfis(fisPath1);
